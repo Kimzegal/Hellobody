@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hellobody.model.dao.CertificationDao">
+
+<select id="checkCertificationStandard" parameterType="String" resultType="Certification">
+SELECT *
+FROM Certification
+WHERE exName = #{exName}
+</select>
+
+<insert id="insertCertificationStandard" parameterType="Certification" >
+INSERT INTO (exName,cType,score,cRate)
+		VALUES
+		(#{exName},#{cType},#{score},#{cRate})
+</insert>
+
+<update id="updateCertificationStandard" parameterType="Certification">
+UPDATE certification
+		SET score=#{score}, cRate=#{cRate}
+		WHERE exName=#{exName}
+</update>
+
+
+
+</mapper>

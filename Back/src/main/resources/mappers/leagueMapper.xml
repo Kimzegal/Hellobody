@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hellobody.model.dao.LeagueDao">
+
+	<select id="select" 
+		resultType="League">
+		SELECT region, area
+		FROM League
+	</select>
+
+	<insert id="insertLeague" parameterType="League">
+		INSERT INTO (region,area)
+		VALUES (#{region},#{area})
+	</insert>
+
+
+
+</mapper>
