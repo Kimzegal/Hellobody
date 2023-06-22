@@ -81,7 +81,7 @@
 </template>
 
 <script>
-//validators에서 유효성 검사용 객체를 가져옴
+//validators에서 유효성 검사용 객체를 가져옵니다.
 import { required, sameAs, email, helpers } from "vuelidate/lib/validators";
 const axios = require("axios");
 const REST_API = `http://localhost:9999/api`;
@@ -94,16 +94,16 @@ export default {
         uId: "",
         pw: "",
         pw2: "",
-        name: "",
+        nick: "",
       },
       check: false,
     };
   },
-  //validations로 각 data에 유효성 검사 부여
+  //validations로 각 입력 form에 유효성을 검사합니다.
   validations: {
     signData: {
-      name: { required },
       uId: { required, email },
+      name: { required, minLength: minLength(4), maxLength: maxLength(12) },
       pw: {
         required,
         pattern: helpers.regex(
